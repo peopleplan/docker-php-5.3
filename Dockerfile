@@ -26,7 +26,7 @@ RUN apt-get update \
 		pkg-config \
 		re2c
 
-RUN mkdir -p $PHP_INI_DIR/conf.d \
+RUN mkdir -p "$PHP_INI_DIR/conf.d" \
 	&& set -xe \
 	&& for key in $GPG_KEYS; do \
 		gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
@@ -115,7 +115,7 @@ RUN apt-get clean \
 	&& rm -r /var/lib/apt/lists/*
 
 # configure php-fpm
-COPY php.ini $PHP_INI_DIR
+COPY php.ini "$PHP_INI_DIR"
 COPY php-fpm.conf /usr/local/etc/
 
 # volumes
