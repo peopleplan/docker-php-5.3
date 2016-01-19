@@ -18,7 +18,7 @@ For PHP projects run through the command line interface (CLI), you can do the fo
 
 ### Create a `Dockerfile` in your PHP project
 
-    FROM helder/php-5.3
+    FROM peopleplan/php-5.3
     COPY . /usr/src/myapp
     WORKDIR /usr/src/myapp
     CMD [ "php", "./your-script.php" ]
@@ -32,13 +32,13 @@ Then, run the commands to build and run the Docker image:
 
 For many simple, single file projects, you may find it inconvenient to write a complete `Dockerfile`. In such cases, you can run a PHP script by using the PHP Docker image directly:
 
-    docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp helder/php-5.3 php your-script.php
+    docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp peopleplan/php-5.3 php your-script.php
 
 ### Without a `Dockerfile`
 
 If you don't want to include a `Dockerfile` in your project, it is sufficient to do the following:
 
-    docker run -it --rm --name my-php-fpm-app -v "$PWD":/var/www/html helder/php-5.3
+    docker run -it --rm --name my-php-fpm-app -v "$PWD":/var/www/html peopleplan/php-5.3
 
 # License
 
